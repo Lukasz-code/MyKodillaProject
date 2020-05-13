@@ -12,16 +12,18 @@ echo Cannot rename file
 goto fail
 
 :stoptomcat
-call %CATALINA_HOME%\bin\shutdown.bat
+echo stoping tomcat
+call "%CATALINA_HOME%\bin\shutdown.bat"
+
 
 :copyfile
-copy build\libs\crud.war %CATALINA_HOME%\webapps
+copy build\libs\crud.war "%CATALINA_HOME%\webapps"
 if "%ERRORLEVEL%" == "0" goto runtomcat
 echo Cannot copy file
 goto fail
 
 :runtomcat
-call %CATALINA_HOME%\bin\startup.bat
+call "%CATALINA_HOME%\bin\startup.bat"
 goto end
 
 :fail

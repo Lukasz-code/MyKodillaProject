@@ -44,6 +44,6 @@ test {
 	useJUnitPlatform()
 }
 
-war {
-	archiveName 'crud.war'
-}
+//war {
+//	archiveName 'crud.war'
+//}

@@ -23,8 +23,8 @@ public class TrelloController {
         List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
         System.out.println("wyświetl ile elementów ma lista: " + trelloBoards.size());
         trelloBoards.stream()
-           .map(s -> s.getName() +" id: " + s.getId())
-                .filter(s -> s.contains("Kodilla"))
+           .filter(s -> s.getId() != null && s.getName() != null)
+                .map(s ->s.getName().contains("Kodilla") + " id: " +s.getId())
                 .forEach(System.out::println);
 
     }

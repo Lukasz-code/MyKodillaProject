@@ -14,18 +14,18 @@ import java.util.Objects;
 @RequestMapping("/v1/trello")
 public class TrelloController {
 
-    @Autowired
-    private TrelloClient trelloClient;
-
-    @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
-    public void getTrelloBoards() {
-        System.out.println("wywołane getTrelloBoards");
-        List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
-        System.out.println("wyświetl ile elementów ma lista: " + trelloBoards.size());
-        trelloBoards.stream()
-           .filter(s -> s.getId() != null && s.getName() != null)
-                .map(s ->s.getName().contains("Kodilla") + " id: " +s.getId())
-                .forEach(System.out::println);
-
-    }
+//    @Autowired
+//    private TrelloClient trelloClient;
+//
+//    @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
+//    public void getTrelloBoards() {
+//        System.out.println("wywołane getTrelloBoards");
+//        List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
+//        System.out.println("wyświetl ile elementów ma lista: " + trelloBoards.size());
+//        trelloBoards.stream()
+//           .filter(s -> s.getId() != null && s.getName() != null)
+//                .map(s ->s.getName().contains("Kodilla") + " id: " +s.getId())
+//                .forEach(System.out::println);
+//
+//    }
 }

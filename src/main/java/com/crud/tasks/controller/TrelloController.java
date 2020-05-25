@@ -19,7 +19,7 @@ public class TrelloController {
     private TrelloClient trelloClient;
 
     @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
-    public void getTrelloBoards() {
+    public List<TrelloBoardDto> getTrelloBoards() {
 
         List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
         trelloBoards.forEach(trelloBoardDto -> {
@@ -32,18 +32,11 @@ public class TrelloController {
                     System.out.println(trelloList.getName() + " - " + trelloList.getId() + " - " + trelloList.isClosed()));
 
         });
+        return trelloClient.getTrelloBoards();
     }
     @RequestMapping (method=RequestMethod.POST, value = "createTrelloCard")
         public CreatedTrelloCard createdTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
 
         return trelloClient.createNewCard(trelloCardDto);
-    }
-    @RequestMapping (method=RequestMethod.GET, value="getTrelloCard")
-    public void getTrelloCard() {
-        List<TrelloCardDto> trelloCards = trelloClient.getTrelloCards();
-        trelloCards.forEach(TrelloCardDto -> {
-            System.out.println(TrelloCardDto.getListId());
-        });
-
     }
 }

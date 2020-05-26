@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.xml.bind.SchemaOutputResolver;
 import java.util.List;
 
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/v1/trello")
 public class TrelloController {
